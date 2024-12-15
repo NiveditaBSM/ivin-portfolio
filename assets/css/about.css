@@ -1,0 +1,406 @@
+/* About Section Layout */
+  .split {
+    display: flex; /* Flexbox for side-by-side layout */
+    align-items: center;  /* Align vertically */
+    gap: 2rem; /* Space between text and image */
+  }
+  
+  .about-text {
+    flex: 2; /* Take up available space */
+    font-size: 1rem;
+    flex-shrink: 0;
+    flex-basis: 60%;
+  }
+  .about-text p {
+    font-size: 1rem;
+  }
+  
+  .about-image {
+    flex: 1;
+    text-align: center; /* Center the image */
+  }
+  
+  .about-image img {
+    max-width: 300px; /* Control the image size */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for a modern look */
+  }
+  
+  section#about {
+    margin-top: -2rem; /* Adjust this value as needed */
+  }
+
+  @media (max-width: 768px) {
+    .split {
+      flex-direction: column; /* Stack the content vertically */
+      gap: 1rem; /* Reduce space between the text and image */
+    }
+  
+    .about-text {
+      flex:none;
+      width: 100%;
+      text-align:left; /* Center the text on smaller screens */
+      font-size: 1rem;
+    }
+    .about-image {
+      flex: none;
+      width: 100%; /* Take full width */
+    }
+  
+    .about-image img {
+      max-width: 80%; /* Adjust image size for smaller screens */
+    }
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates 2 equal columns */
+    gap: 0.5rem 1rem; /* Adds space between items */
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+    font-size: small;
+  }
+
+  
+
+/* Experience Section */
+#experience {
+    background-image: url("images/intro.svg");
+    color: #ffff; /* Light gray text */
+    align-items: start;
+    align-self: start;
+}
+
+.section-title {
+    margin-bottom: 3rem;
+    font-size: 1rem;
+}
+
+/* Flex Layout for Sidebar and Content */
+.experience-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+/* Sidebar Navigation */
+.company-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 0 0 25%;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.company-item {
+    padding: 1rem;
+    color: #bfb7ff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.company-item:hover,
+.company-item.active {
+    font-weight: bold;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Job Content */
+.job-content {
+    flex: 1;
+}
+
+.job-details {
+    display: none;
+}
+
+.job-details.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.job-details h3 {
+    font-size: 1.1rem;
+    color: #ffffff;;
+    margin-bottom: 0.5rem;
+}
+
+.job-duration {
+    font-size: 0.9rem;
+    color: #bfb7ff;
+    margin-bottom: 1rem;
+}
+
+.job-responsibilities {
+    list-style: none;
+    padding: 0;
+}
+
+.job-responsibilities li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.job-responsibilities li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    /* Pink bullets */
+}
+@media (max-width: 768px) {
+  /* Stack the sidebar and content vertically */
+  .experience-container {
+      flex-direction: column;
+  }
+
+  /* Adjust sidebar width and border */
+  .company-list {
+      flex: 1; /* Take full width */
+      border-right: none; /* Remove border for better appearance */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add bottom border */
+  }
+
+  /* Adjust font size and padding for sidebar items */
+  .company-item {
+      font-size: 0.9rem; /* Reduce font size */
+      padding: 0.75rem; /* Reduce padding */
+  }
+
+  /* Job content full width */
+  .job-content {
+      flex: 1; /* Take full width */
+  }
+
+  /* Adjust job details spacing and font size */
+  .job-details h3 {
+      font-size: 1rem; /* Smaller title font */
+  }
+
+  .job-duration {
+      font-size: 0.85rem; /* Adjust duration font */
+  }
+
+  .job-responsibilities li {
+      font-size: 0.9rem; /* Smaller responsibility text */
+      padding-left: 1rem; /* Adjust padding */
+  }
+
+  .company-item:hover {
+    background: rgba(255, 255, 255, 0.1); /* Subtle background highlight */
+    color: #ffffff; /* Brighten the text color */
+    transform: scale(1.05); /* Slightly enlarge */
+    transition: all 0.3s ease; /* Smooth animation */
+}
+
+/* Active item styles for better touch clarity */
+.company-item.active {
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+}
+/* Projects Section */
+#projects .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-card {
+    background: rgba(255, 255, 255, 0.05); 
+    color: #f9fafb; /* Light text */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+  } */
+  
+  .project-card .icon {
+    font-size: 2rem;
+     /* Teal icon color */
+    margin-bottom: 1rem;
+  }
+  
+  .project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-weight: lighter;
+  }
+  
+  .project-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .project-card .tags span {
+     /* Slightly lighter dark background */
+    color: #d2deeb; /* Soft light text */
+    border-radius: 4px;
+    font-size: 0.8rem;
+    padding: 0.1rem;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  
+/* Contact Details Layout */
+.contact-details {
+    display: flex;
+    width: 100%; 
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center; /* Aligns items vertically */
+    gap: 2rem; /* Space between items */
+    flex-wrap: wrap; /* Wraps items if they overflow */
+    margin-top: 1.5rem; /* Top spacing */
+  }
+  
+  /* Individual Contact Items */
+  .contact-item {
+    display: flex;
+    flex-direction: column; /* Label and content stack vertically */
+    flex: 1;
+    color: #f9fafb; /* Light color for text */
+    font-size: 0.9rem;
+  }
+  
+  .contact-item a,
+  .contact-item span {
+    color: #e0e0e0;
+    text-decoration: none;
+  }
+  
+  
+  
+  /* Social Icons Styling */
+  .social-icons a {
+    color: #e0e0e0;
+    margin: 0 0.25rem; /* Small spacing between icons */
+    font-size: 1.2rem; /* Slightly larger icons */
+  }
+  
+  
+  /* Dividers */
+  .divider {
+    width: 1px;
+    height: 3rem; /* Tall divider */
+    background-color: rgba(255, 255, 255, 0.3); /* Light gray/white divider */
+    margin: 0 1rem;
+  }
+  
+  /* Responsive Layout */
+  @media (max-width: 768px) {
+    .contact-details {
+      flex-direction: column; /* Stack items vertically */
+      gap: 1rem;
+    }
+
+      
+    .divider {
+      display: none; /* Hide dividers on small screens */
+    }
+
+    .contact-details {
+      text-align: center; /* Center-align for smaller screens */
+      gap: 1.5rem; /* Increase spacing between sections */
+    }
+
+    .contact-item {
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .social-icons {
+      justify-content: center; /* Center icons for better visuals */
+      gap: 1rem; /* Add larger space between icons */
+    }
+  }
+  
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    #projects .grid {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+  }
+
+/* Skills Section */
+#skills {
+  background-image:url("images/intro.svg");
+  padding: 1rem 1rem; /* Adjust padding for breathing room */
+  position: relative;
+}
+
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 2rem; /* Add spacing between columns */
+  max-width: 1000px; /* Limit container width */
+  margin: 0 auto; /* Center the container */
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff; /* Keep headings bright */
+  font-weight: 600;
+  text-transform: none;
+}
+
+.skill-category ul {
+  padding: 0;
+  list-style: none;
+}
+
+.skill-category li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55); /* Slightly softer text color */
+  font-weight: 400; /* Normal font weight */
+  line-height: 1.6;
+}
+
+.skill-category li:hover {
+  color: #fff; /* Brighten the text on hover */
+  text-decoration: underline; /* Subtle underline */
+  transition: color 0.3s ease-in-out;
+}
+
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+  }
+}
+
+  
